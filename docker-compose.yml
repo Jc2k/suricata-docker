@@ -1,0 +1,7 @@
+version: '2.2'
+
+services:
+  suricata:
+    build: .
+    cap_add:
+      - NET_ADMIN

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+touch /var/lib/suricata/alerts/alerts.json.new
+mv /var/lib/suricata/alerts/alerts.json.new /var/lib/suricata/alerts/alerts.json
+/bin/kill -HUP `cat /var/run/suricata/suricata.pid 2>/dev/null` 2>/dev/null || true
