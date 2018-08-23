@@ -1,6 +1,8 @@
 #!/bin/sh
 set -eo pipefail
 
+/app/bin/confd -onetime -backend env -confdir /etc/confd
+
 if [ ! -d /var/lib/suricata/alerts ]; then
     mkdir -p /var/lib/suricata/alerts
 fi

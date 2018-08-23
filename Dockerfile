@@ -1,6 +1,7 @@
 FROM alpine:3.8
 
 RUN \
+    apk --no-cache add --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing confd && \
     apk --no-cache add --repository https://dl-cdn.alpinelinux.org/alpine/3.8/community suricata && \
     apk --no-cache add python3 && \
     python3 -m pip install --no-cache pyyaml suricata-update && \
@@ -8,7 +9,10 @@ RUN \
     adduser -S -H -u 2000 -D -g 2000 suricata
 
 COPY suricata-logrotate /usr/bin/suricata-logrotate
-COPY suricata.yaml /etc/suricata/suricata.yaml
+COPY suricata.yaml /etc/confd/templates/suricata.yaml
+COPY suricata.yaml.toml /etc/confd/conf.d/suricata.yaml.toml
+COPY disable.conf /etc/confd/templates/disable.conf
+COPY disable.conf.toml /etc/confd/conf.d/disable.conf.toml
 COPY entrypoint.sh /docker-entrypoint.sh
 
 VOLUME /var/lib/suricata

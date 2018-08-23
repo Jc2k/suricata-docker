@@ -1,0 +1,10 @@
+[template]
+src   = "suricata.yaml"
+dest  = "/etc/suricata/suricata.yml"
+owner = "root"
+group = "root"
+mode  = "0644"
+keys = [
+"/variables/addresses/home",
+"/variables/addresses/external",
+]
