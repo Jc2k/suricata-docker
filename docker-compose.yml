@@ -5,3 +5,6 @@ services:
     build: .
     cap_add:
       - NET_ADMIN
+    environment:
+      - VARIABLES_ADDRESSES_HOME=any
+      - VARIABLES_ADDRESSES_EXTERNAL=any

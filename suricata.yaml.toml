@@ -1,6 +1,6 @@
 [template]
 src   = "suricata.yaml"
-dest  = "/etc/suricata/suricata.yml"
+dest  = "/etc/suricata/suricata.yaml"
 owner = "root"
 group = "root"
 mode  = "0644"

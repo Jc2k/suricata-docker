@@ -1,10 +1,9 @@
 FROM alpine:3.8
 
 RUN \
-    apk --no-cache add --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing confd && \
-    apk --no-cache add --repository https://dl-cdn.alpinelinux.org/alpine/3.8/community suricata && \
-    apk --no-cache add python3 && \
-    python3 -m pip install --no-cache pyyaml suricata-update && \
+    apk --no-cache add --repository https://uk.alpinelinux.org/alpine/edge/testing confd && \
+    apk --no-cache add suricata py2-pip && \
+    pip2 install --no-cache pyyaml suricata-update && \
     addgroup -g 2000 suricata && \
     adduser -S -H -u 2000 -D -g 2000 suricata
 
